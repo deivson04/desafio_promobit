@@ -224,4 +224,11 @@ class AppController extends Controller
             
                return view('aplicacao', compact('users'));
           }
+
+          
+
+
+
+
+
 }

@@ -24,3 +24,10 @@ Route::get('/Usuario_logout', [AppController::class, 'logout']);
 Route::get('/recuperar_senha', [AppController::class, 'recuperarSenha']);
 Route::post('/executar_recuperar_senha', [AppController::class, 'executarRecuperarSenha']);
 Route::get('/usuario_email_enviado', [AppController::class, 'emailEnviado']);
+
+
+// Rota de produto
+Route::get('/cadastro_produto', [App\Http\Controllers\AplicacaoController::class, 'cadastroProduto']);
+
+// rota da tag
+Route::get('/cadastro_tag', [App\Http\Controllers\AplicacaoController::class, 'cadastroTag']);

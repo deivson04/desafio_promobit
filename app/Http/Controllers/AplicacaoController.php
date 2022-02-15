@@ -19,4 +19,24 @@ class AplicacaoController extends Controller
            	
 	  
     } 
+
+    public function cadastroProduto(){
+		return view('produto');
+	  }
+
+	public function cadastroTag(){
+		return view('tag');
+	}  
+
+
+
+
+
+
+
+
+
+
+
+
 }

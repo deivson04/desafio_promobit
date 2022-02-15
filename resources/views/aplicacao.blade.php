@@ -5,20 +5,30 @@
 @section('conteudo')
   
 <div class="adm">
-<h3>PAINEL ADMINISTRATIVO</h3>
+<h1>DESAFIO PROMOBIT</h1>
 </div>
 <p>Usuario:<strong> {{ session('usuario') }}</strong></p>
 
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Relatorio de Vendas</a>
-  </li>
+
+ 
   <li class="nav-item">
     <a class="nav-link disabled"  href="/Usuario_logout" class="btn btn-primary btn-sm">Sair</a>
   </li>
-</ul>
 
 
+<div class="menu">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Relatorio de Relevancia</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('cadastro_produto')}}">Produto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('cadastro_tag')}}">Tag</a>
+    </li>  
+  </ul>
+</div>
 
  
 
@@ -27,15 +37,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Tipo do Kit</th>
-      <th scope="col">Quantidade</th>
-      <th scope="col">valor</th>
-      <th scope="col">Data comprar</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Endereço</th>
-      <th scope="col">Tipo de Pagamento</th>
-      <th scope="col">Retirada ou Frete</th>
-      <th scope="col">valor total</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Tag</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -47,15 +51,12 @@
       <th scope="row">{{$use->id}}</th>
       <td>{{$use->usuario}}</td>
       <td>{{$use->email}}</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><a href="/cupom?id_usuario={{$use->id}}" class="btn btn-primary">Ver cupom</a></td>
+      <div class="bot"> 
+        <td><a href="/cupom?id_usuario={{$use->id}}" class="btn btn-primary">Atualizar</a></td>
+      </div>  
     </tr>
+    
+    
     @endforeach    
     @endif
     @endif
