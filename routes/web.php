@@ -27,7 +27,9 @@ Route::get('/usuario_email_enviado', [AppController::class, 'emailEnviado']);
 
 
 // Rota de produto
-Route::get('/cadastro_produto', [App\Http\Controllers\AplicacaoController::class, 'cadastroProduto']);
+Route::get('/cadastrar_produto', [App\Http\Controllers\ProdutoController::class, 'create']);
+Route::post('/cadastrar_produto', [App\Http\Controllers\ProdutoController::class, 'store']);
 
-// rota da tag
-Route::get('/cadastro_tag', [App\Http\Controllers\AplicacaoController::class, 'cadastroTag']);
+
+
+

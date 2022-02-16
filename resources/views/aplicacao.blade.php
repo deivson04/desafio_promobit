@@ -22,10 +22,10 @@
       <a class="nav-link active" href="/">Relatorio de Relevancia</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{url('cadastro_produto')}}">Produto</a>
+      <a class="nav-link" href="{{url('cadastrar_produto')}}">Produto</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{url('cadastro_tag')}}">Tag</a>
+      <a class="nav-link" href="{{url('cadastrar_tag')}}">Tag</a>
     </li>  
   </ul>
 </div>

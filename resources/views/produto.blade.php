@@ -18,7 +18,7 @@
               <a class="nav-link active" href="/">Relatorio de Relevancia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('cadastro_produto')}}">Produto</a>
+              <a class="nav-link" href="{{url('cadastrar_produto')}}">Produto</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('cadastro_tag')}}">Tag</a>
@@ -33,7 +33,7 @@
         {{-- apresentação de error de validação... e não so --}}
         @include('inc.erros') 
 
-        <form method="POST" action="/cadastro_produto">
+        <form method="POST" action="/cadastrar_produto">
             
                 {{-- crsf --}}
                 {{ csrf_field() }}  
@@ -41,8 +41,8 @@
 
             
             <div class="form-group col-md-2">
-                    <label for="id_name">Name do produto:</label>
-                <input type="text" class="form-control" id="id_name" name="text_name" placeholder="Nome do produto"> 
+                    <label for="id_nome">Nome do produto:</label>
+                <input type="text" class="form-control" id="id_nome" name="text_nome" placeholder="Nome do produto"> 
             
             
             <div class="form-check">
@@ -65,7 +65,8 @@
                   Tag C
                 </label>
                 <div class="but">
-                <button type="button" class="btn btn-primary">Cadastrar</button>   
+                 
+                 <input type="submit" class="btn btn-primary" value="cadastrar">   
                 </div> 
             </div>
               

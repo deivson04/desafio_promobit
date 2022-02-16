@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Produto;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Cadastro;
 use Session;
@@ -20,14 +21,7 @@ class AplicacaoController extends Controller
 	  
     } 
 
-    public function cadastroProduto(){
-		return view('produto');
-	  }
-
-	public function cadastroTag(){
-		return view('tag');
-	}  
-
+    
 
 
 
