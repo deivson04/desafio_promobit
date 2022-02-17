@@ -29,7 +29,14 @@ Route::get('/usuario_email_enviado', [AppController::class, 'emailEnviado']);
 // Rota de produto
 Route::get('/cadastrar_produto', [App\Http\Controllers\ProdutoController::class, 'create']);
 Route::post('/cadastrar_produto', [App\Http\Controllers\ProdutoController::class, 'store']);
+Route::get('/deletar_tag/{id}', [App\Http\Controllers\ProdutoController::class, 'destroy']);
+Route::get('/atualizar_tag/{id}', [App\Http\Controllers\ProdutoController::class, 'edit']);
+Route::post('/atualizar_tag', [App\Http\Controllers\ProdutoController::class, 'update']);
 
 
-
-
+// Rota de tag
+Route::get('/cadastrar_tag', [App\Http\Controllers\TagController::class, 'create']);
+Route::post('/cadastrar_tag', [App\Http\Controllers\TagController::class, 'store']);
+Route::get('/deletar_tag/{id}', [App\Http\Controllers\TagController::class, 'destroy']);
+Route::get('/atualizar_tag/{id}', [App\Http\Controllers\TagController::class, 'edit']);
+Route::post('/atualizar_tag', [App\Http\Controllers\TagController::class, 'update']);

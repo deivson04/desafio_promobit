@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produto_Tag extends Model
 {
-    protected $table = 'produto_tag';
+    protected $table = 'produto__tags';
     
     protected $fillable = [
         'produto_id',

@@ -24,7 +24,14 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('tag.create');
+        $tags = Tag::all();
+
+        
+        
+        
+        return view('tag',compact('tags'));
+    
+        
     }
 
     /**
@@ -36,13 +43,13 @@ class TagController extends Controller
     public function store(Request $request)
     {
        
-        $novo = new tag;
-  
-           $novo->nome = $request->text_usuario;
-           $novo->save();
-  
-           return redirect('/'); 
+        $flight = new Tag;
+ 
+        $flight->nome = $request->nome;
+ 
+        $flight->save();
     
+       return redirect('cadastrar_tag');
     }
 
     /**
@@ -64,7 +71,10 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+        
+        return view('editar_tag', compact('tag'));
+    
     }
 
     /**
@@ -74,9 +84,15 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $tag = Tag::find($request->id_tag);
+
+        $tag->nome = $request->nome;
+        
+        $tag->save();
+        
+        return redirect('cadastrar_tag');
     }
 
     /**
@@ -87,6 +103,8 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::findOrFail($id)->delete();
+        
+        return redirect('cadastrar_tag');
     }
 }

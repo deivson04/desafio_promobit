@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produto;
+use App\Models\Tag;
+use App\Models\Produto_Tag;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -13,7 +15,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,7 +25,10 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('produto');
+        $produto = Produto::all();
+        $tags = Tag::all();
+        
+        return view('produto',compact('produto','tags'));
     }
 
     /**
@@ -33,24 +38,23 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $flight = new Produto;
+    {   
+        $produto = new Produto;
+  
+        $produto->name = $request->name;
  
-        $flight->nome = $request->nome;
- 
-        $flight->save();
+        $produto->save();
+        
+        for($i = 0; $i < count($request->tags); $i++){
+            $produto_tag = new Produto_Tag;   
+            $produto_tag->produto_id = $produto->id;
+            $produto_tag->tag_id = $request->tags[$i];
+            $produto_tag->save();
+        }
+           return redirect('cadastrar_produto');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -60,7 +64,9 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Tag::find($id);
+        
+        return view('editar_tag', compact('produto'));
     }
 
     /**
@@ -72,7 +78,13 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produto = Produto::find($request->id_name);
+
+        $produto->name = $request->name;
+        
+        $produto->save();
+        
+        return redirect('cadastrar_produto');
     }
 
     /**
@@ -83,6 +95,8 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::findOrFail($id)->delete();
+        
+        return redirect('cadastrar_produto');
     }
 }

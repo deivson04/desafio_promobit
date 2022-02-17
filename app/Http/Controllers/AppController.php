@@ -15,23 +15,23 @@ class AppController extends Controller
         //verificar se existir sessão
         //dd(!session::has('login'));
         
-        if(!session::has('login')){
+         if(!session::has('login')){
             
-          return $this->frmLogin();
-            //se não existir, apresenta o formulario de login
-        }else{
+           return $this->frmLogin();
+             //se não existir, apresenta o formulario de login
+         }else{
                  
-          return redirect('/aplicacao'); 
-        }
+           return redirect('/aplicacao'); 
+         }
           
         
       
-      } 
+       
   
         //return view('index');
          //return $this->frmlogin();
          
-  
+        }
   
       
   

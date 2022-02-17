@@ -54,12 +54,12 @@ button{
 
 .but{
 	position: absolute;
-	top: 80px;
-	left: 5px;
+	top: 160px;
+	left: 50px;
 }
 
 .bot{
 	position: absolute;
-	left: 40px;
+	left: 80px;
     
 }
