@@ -15,7 +15,7 @@
         <div class="menu">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link" href="{{url('cadastrar_tag')}}">Voltar</a>
+              <a class="nav-link" href="{{url('cadastrar_produto')}}">Voltar</a>
             </li>  
           </ul>
         </div>
@@ -24,7 +24,7 @@
             {{-- apresentação de error de validação... e não so --}}
             @include('inc.erros') 
     
-            <form method="POST" action="/atualizar_tag">
+            <form method="POST" action="/atualizar_produto">
                 
                     {{-- crsf --}}
                     {{ csrf_field() }}  
@@ -32,9 +32,9 @@
     
                 
                 <div class="form-group col-md-2">
-                        <label for="id_tag">Name da Tag:</label>
-                        <input type="text" class="form-control" id="id_tag" name="nome" value="{{$tag->nome}}"> 
-                        <input type="hidden" class="form-control"  name="id_tag" value="{{$tag->id}}"> 
+                        <label for="id_produto">Name da Produto:</label>
+                        <input type="text" class="form-control" id="id_produto" name="name" value="{{$produto->name}}"> 
+                        <input type="hidden" class="form-control"  name="id_produto" value="{{$produto->id}}"> 
                     <button type="submit" class="btn btn-primary">Atualizar</button>
                 </div>    
         </form>

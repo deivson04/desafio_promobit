@@ -15,7 +15,10 @@
         <div class="menu">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Relatorio de Relevancia</a>
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('buscarRelevancia')}}">Relatorio de Relevancia</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('cadastrar_produto')}}">Produto</a>
@@ -46,12 +49,12 @@
         </form>
     </div>
 
+  
     <table class="table table-dark">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -62,10 +65,12 @@
         <tr>
           <th scope="row">{{$tag->id}}</th>
           <td>{{$tag->nome}}</td>
-          <div class="bot"> 
+          
+          <div class="boty"> 
             <td><a href="/atualizar_tag/{{$tag->id}}" class="btn btn-primary">Editar</a></td>
-          </div>  
-          <div class="bot"> 
+   
+          
+          
             <td><a href="/deletar_tag/{{$tag->id}}" class="btn btn-primary">Apagar</a></td>
           </div> 
         

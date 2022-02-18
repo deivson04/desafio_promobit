@@ -15,7 +15,10 @@
         <div class="menu">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Relatorio de Relevancia</a>
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('buscarRelevancia')}}">Relatorio de Relevancia</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('cadastrar_produto')}}">Produto</a>
@@ -68,29 +71,32 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Ações</th>
+          <th scope="col">Produto</th>
         </tr>
       </thead>
       <tbody>
-        @if(isset($tags))
-        @if ($tags->count())
-        @foreach ($tags as $tag )
-           
+        @if(isset($produto))
+        @if ($produto->count())
+        @foreach($produto as $produt)
+          
         <tr>
-          <th scope="row">{{$tag->id}}</th>
-          <td>{{$tag->nome}}</td>
-          <div class="bot"> 
-            <td><a href="/atualizar_tag/{{$tag->id}}" class="btn btn-primary">Editar</a></td>
+          <th scope="row">{{$produt->id}}</th>
+          <td>{{$produt->name}}</td>
+          
+          
+          <div class="boty"> 
+            <td><a href="/atualizar_produto/{{$produt->id}}" class="btn btn-primary">Editar</a></td>
           </div>  
           <div class="bot"> 
-            <td><a href="/deletar_tag/{{$tag->id}}" class="btn btn-primary">Apagar</a></td>
+            <td><a href="/deletar_produto/{{$produt->id}}" class="btn btn-primary">Apagar</a></td>
           </div> 
         
         </tr>
         
         
-        @endforeach    
+      
+        @endforeach 
+      
         @endif
         @endif
       </tbody>

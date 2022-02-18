@@ -8,21 +8,7 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         $produto = Produto::all();
@@ -31,14 +17,10 @@ class ProdutoController extends Controller
         return view('produto',compact('produto','tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {   
+            
         $produto = new Produto;
   
         $produto->name = $request->name;
@@ -55,48 +37,67 @@ class ProdutoController extends Controller
     }
 
    
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $produto = Tag::find($id);
+        $produto = Produto::find($id);
         
-        return view('editar_tag', compact('produto'));
+        return view('editar_produto', compact('produto'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+    public function update(Request $request)
     {
-        $produto = Produto::find($request->id_name);
+        $produto = Produto::find($request->id_produto);
 
         $produto->name = $request->name;
-        
+       
         $produto->save();
+        $messag = "Atualizado com sucesso";
+        return redirect('cadastrar_produto')->with('$messag');
+    }
+
+    
+    public function destroy($id)
+    {
+        Produto::findOrFail($id)->delete();
         
         return redirect('cadastrar_produto');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        Tag::findOrFail($id)->delete();
+
+    public function buscarRelatorio(){
+         $users = Produto_Tag::all();
+         //$us = Tag::all();    
+         //$users = produto_tag::where('produto_id', $user)->orwhere('tag_id', $us)->get();   
         
-        return redirect('cadastrar_produto');
+        //dd($users);
+       //$users = produto::where('name', $user)->get();    
+        
+        //   $sql = "SELECT 
+        //   produto__tags.produto_id,
+        //   produtos.name AS produto,
+        //   produto__tags.tag_id,
+        //   tags.nome AS tag
+        //   FROM produtos
+        //   INNER JOIN produto__tags
+        //       ON produto__tags.produto_id = produtos.id
+        //   INNER JOIN tags
+        //       ON tags.id = produto__tags.tag_id";
+        //     //dd($sql);
+        //     //return \DB::select($sql);
+        return view('/buscarRelevancia', compact('users'));
+          
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

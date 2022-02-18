@@ -215,7 +215,7 @@ class AppController extends Controller
           
          
           
-          // buscar do usuario no banco de dados
+          // buscar do relatorio de relevância no banco de dados
           //--------------------------------------------
           public function buscarUsuario(){
             $usuario = session()->get('usuario');
@@ -224,7 +224,8 @@ class AppController extends Controller
             
                return view('aplicacao', compact('users'));
           }
-
+          
+         
           
 
 
