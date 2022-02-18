@@ -21,9 +21,8 @@ Route::post('/usuario_executar_criacao_nova_conta', [AppController::class, 'exec
 // Rota da aplicação
 Route::get('/aplicacao', [AplicacaoController::class, 'apresentarPaginaInicial']);
 
+// Rota de buscar usuario
 Route::get('/aplicacao_buscar_Usuario', [AppController::class, 'buscarUsuario']);
-
-Route::get('/buscarRelevancia', [App\Http\Controllers\ProdutoController::class, 'buscarRelatorio']);
 
 // Rota de Logout
 Route::get('/Usuario_logout', [AppController::class, 'logout']);
@@ -49,5 +48,5 @@ Route::get('/deletar_tag/{id}', [App\Http\Controllers\TagController::class, 'des
 Route::get('/atualizar_tag/{id}', [App\Http\Controllers\TagController::class, 'edit']);
 Route::post('/atualizar_tag', [App\Http\Controllers\TagController::class, 'update']);
 
-
+// Rota de buscar relevancia
 Route::get('/buscarRelevancia', [App\Http\Controllers\ProdutoController::class, 'buscarRelatorio']);

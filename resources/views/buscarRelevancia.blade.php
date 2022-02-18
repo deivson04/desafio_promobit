@@ -35,26 +35,18 @@
 <table class="table table-dark">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Produto</th>
         <th scope="col">Tag</th>
-        
       </tr>
     </thead>
     <tbody>
-      @if(isset($users))
-      @if($users->count())
-      @foreach ($users as $use)
-         
+      @if(isset($produt))
+      @foreach ($produt as $produto)   
       <tr>
-        <th scope="row">{{$use->id}}</th>
-        <td>{{$use->produto_id}}</td>
-        <td>{{$use->tag_id}}</td> 
-      </tr>
-      
-      
+        <td>{{$produto->produto}}</td>
+        <td>{{$produto->tag}}</td> 
+      </tr>      
       @endforeach    
-      @endif
       @endif
     </tbody>
   </table>

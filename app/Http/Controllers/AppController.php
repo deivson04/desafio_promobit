@@ -23,19 +23,9 @@ class AppController extends Controller
                  
            return redirect('/aplicacao'); 
          }
-          
-        
-      
-       
-  
-        //return view('index');
-         //return $this->frmlogin();
-         
-        }
-  
-      
-  
-      
+                       
+        }      
+   
    //------------------------------------
    //LOGIN
    //------------------------------------
@@ -196,11 +186,6 @@ class AppController extends Controller
              //enviar email ao usuario com a nova senha
   
           Mail::to($usuario->email)->send(new emailRecuperarSenha($nova_senha));
-  
-  
-          //enviar o email com a nova senha do usuario
-  
-          //mail::to($usuario->email)->send(new emailRecuperarSenha($nova_senha));
   
         
           return redirect('/usuario_email_enviado');

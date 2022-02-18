@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Models\Tag;
 use App\Models\Produto_Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -65,27 +66,20 @@ class ProdutoController extends Controller
     }
 
 
-    public function buscarRelatorio(){
-         $users = Produto_Tag::all();
-         //$us = Tag::all();    
-         //$users = produto_tag::where('produto_id', $user)->orwhere('tag_id', $us)->get();   
+    public function buscarRelatorio(){    
         
-        //dd($users);
-       //$users = produto::where('name', $user)->get();    
-        
-        //   $sql = "SELECT 
-        //   produto__tags.produto_id,
-        //   produtos.name AS produto,
-        //   produto__tags.tag_id,
-        //   tags.nome AS tag
-        //   FROM produtos
-        //   INNER JOIN produto__tags
-        //       ON produto__tags.produto_id = produtos.id
-        //   INNER JOIN tags
-        //       ON tags.id = produto__tags.tag_id";
-        //     //dd($sql);
-        //     //return \DB::select($sql);
-        return view('/buscarRelevancia', compact('users'));
+          $produtos = "SELECT 
+          produto__tags.produto_id,
+          produtos.name AS produto,
+          produto__tags.tag_id,
+          tags.nome AS tag
+          FROM produtos
+          INNER JOIN produto__tags
+              ON produto__tags.produto_id = produtos.id
+          INNER JOIN tags
+              ON tags.id = produto__tags.tag_id";
+          $produt = DB::select($produtos);
+        return view('/buscarRelevancia', compact('produt'));
           
     }
 
